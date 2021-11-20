@@ -16,4 +16,4 @@ time(&sisTime);		//time obtiene el tiempo del sistema y se lo pasa a la direccio
 tiempo=localtime(&sisTime);
 //Convierte los valores de sisTime a compatibles con la estructura tm y luego asigno ese valor a tiempo.
 
-//Una estructura tm, esta compuesta por datos de tipo int, nota informatima mia
+//Una estructura tm, esta compuesta por datos de tipo int, nota informativa mia
