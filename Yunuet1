@@ -112,3 +112,54 @@ if (febrero==29) //ya calcule el anio bisisesto, asi que no volvere a hacerlo.
 		case 11:moduloMes=5;break;
 	}
 }
+
+
+semana=((anio-1)%7+ ((anio-1)/4 -(3*((anio-1)/100+1)/4))%7+moduloMes+1%7)%7;
+
+//Impresion de dias
+printf("\nDo\tLu\tMar\tMier\tJue\tVier\tSab\n");
+
+	
+		for(m=0;m<semana;m++)//dar espacios para que el primer dia calce.
+		printf("\t");
+
+		for(i=1;i<=total_mes;i++)//imprimir dias correspondientes al mes.
+		{
+			if(i==8-semana||i==15-semana||i==22-semana||i==29-semana || i== 36-semana)
+				printf("\n%d\t",i);
+			else	
+				printf("%d\t",i);
+		}
+// los i==8-semana... y los otros es para que la condicional cada 7 dias imprima un \n es decir
+// baje de linea y prosiga imprimiendo el calendario en un cuadrado...
+
+printf("\n\nDesea Buscar otra Fecha? \n\t1=SI 0=NO\t>>> ");
+scanf("%d",&seleccion);
+
+while (seleccion<0 || seleccion>1)
+{
+printf("ERROR, Ingrese 1/0\n");
+printf("Desea Buscar otra Fecha? \n\t1=SI 0=NO\t>>> ");
+scanf("%d",&seleccion);
+}
+
+if (seleccion == 1)
+{
+printf("\nIngrese Mes: ");
+scanf("%d",&mes);
+
+mes-=1;
+// Al inicio agregamos +1 al mes, ya que contábamos los meses de 0-11,
+// esta vez estamos contando de 1-12, por lo que le restamos uno.
+// Asi cuando el ciclo empiece de nuevo sumara 1, dejando el mes en el valor que deseamos.
+
+printf ("Ingrese Anio: ");
+scanf("%d",&anio);
+
+system("cls");//limpia pantalla (borra anterior calendario)
+printf("\t=============================>CALENDARIO<=============================\n\n");
+
+}
+}//llave del while principal
+
+}//llave del main.
